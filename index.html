@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashbord.css">
+</head>
+<body>
+  <div id="auth-interface">
+    <div class="container" id="container">
+      <!-- Sign in Form -->
+      <form id="signin-form" class="form active">
+        <h1>Sign in</h1>
+        <label>Email</label>
+        <input type="email" placeholder="example.email@gmail.com" required>
+        <label>Password</label>
+        <div class="password-field">
+          <input type="password" placeholder="Enter at least 8+ characters" required id="signin-password">
+          <span class="toggle" onclick="togglePassword('signin-password', this)">👁️</span>
+        </div>
+        <div class="options">
+          <label><input type="checkbox" checked> Remember me</label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+        <button type="submit" class="main-btn">Sign in</button>
+        <button type="button" class="secondary-btn" onclick="showOtpMobile()">Sign in with OTP</button>
+      </form>
+
+      <!-- OTP: Enter Mobile Number -->
+      <form id="otp-mobile-form" class="form">
+        <h1>Enter mobile number</h1>
+        <label>Mobile Number</label>
+        <input type="tel" placeholder="Enter your mobile number" required>
+        <button type="button" class="main-btn" onclick="showOtpCode()">Next</button>
+        <button type="button" class="back-btn" onclick="showOtpMobile()">Back</button>
+      </form>
+
+      <!-- OTP: Enter Code -->
+      <form id="otp-code-form" class="form">
+        <h1>Enter code</h1>
+        <label>OTP</label>
+        <div class="password-field">
+          <input type="text" placeholder="Enter code" required id="otp-code">
+          <span class="toggle" onclick="togglePassword('otp-code', this)">👁️</span>
+        </div>
+        <a href="#" class="resend">Resend code</a>
+        <button type="submit" class="main-btn">Sign in</button>
+        <button type="button" class="back-btn" onclick="showOtpMobile()">Back</button>
+      </form>
+    </div>
+    
+  </div>
+
+  <div id="dashboard" class="hidden">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="logo.png" alt="Logo" class="logo">
+        <span>Shree South India</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active">Dashboard</li>
+        <li>Orders <span class="badge">9</span></li>
+        <li>Reports</li>
+        <li>Products <span class="badge">9</span></li>
+        <li>Users</li>
+        <li>Categories</li>
+        <li>Notifications <span class="badge">99+</span></li>
+        <li>Settings</li>
+      </ul>
+      
+    </aside>
+    <main class="main-content">
+      <header class="dashboard-header">
+        <button class="hamburger" onclick="toggleSidebar()">&#9776;</button>
+        <span class="dashboard-title">Dashboard</span>
+        <input type="search" placeholder="Search…" class="search-bar">
+        <div class="dashboard-profile">
+          <span class="notif">&#128276;</span>
+          <span class="profile-pic">&#128100; JAYA MOHAN &#x25BC;</span>
+        </div>
+      </header>
+      <section class="dashboard-overview">
+        <div class="card new-orders">
+          <div class="card-title">New orders</div>
+          <div class="card-value">21</div>
+          <div class="card-subtext green">↑ 5.39% from last month</div>
+        </div>
+        <div class="card open-orders">
+          <div class="card-title">Open orders</div>
+          <div class="card-value">31</div>
+          <div class="card-subtext green">↑ 5.39% from last month</div>
+        </div>
+        <div class="card all-orders">
+          <div class="card-title">All orders</div>
+          <div class="card-value">298</div>
+          <div class="card-subtext green">↑ 6.84% from last month</div>
+        </div>
+      </section>
+      <section class="dashboard-details">
+        <div class="details-header">
+          <span>Detailed report</span>
+          <div>
+            <button class="import-btn">Import</button>
+            <button class="export-btn">Export</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="details-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>COMPANY NAME</th>
+              <th>MANAGER</th>
+              <th>ORDER VALUE</th>
+              <th>ORDER DATE</th>
+              <th>STATUS</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Mahesh</td>
+              <td>Bhima</td>
+              <td>₹4,66,000</td>
+              <td>10/07/2023</td>
+              <td><span class="status new">New</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Titan Hyd</td>
+              <td>SmoozeShift</td>
+              <td>₹4,66,000</td>
+              <td>24/07/2023</td>
+              <td><span class="status new">New</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Kalyan Nellore</td>
+              <td>Prime Time Telecom</td>
+              <td>₹4,66,000</td>
+              <td>08/08/2023</td>
+              <td><span class="status in-progress">In-progress</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>GRT Chennai</td>
+              <td>OmniTech Corporation</td>
+              <td>₹4,66,000</td>
+              <td>31/08/2023</td>
+              <td><span class="status in-progress">In-progress</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>Mukesh Jewellers</td>
+              <td>DataStream Inc.</td>
+              <td>₹4,66,000</td>
+              <td>01/05/2023</td>
+              <td><span class="status completed">Completed</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>StrideFi</td>
+              <td>FlowRush</td>
+              <td>₹4,66,000</td>
+              <td>10/06/2023</td>
+              <td><span class="status completed">Completed</span></td>
+              <td><span class="edit">&#9998;</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="pagination">
+          <span class="active">1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>…</span>
+          <span>10</span>
+          <span>11</span>
+        </div>
+        <div class="results-count">63 results</div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
